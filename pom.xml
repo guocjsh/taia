@@ -12,6 +12,7 @@
     <modules>
         <module>taia-cloud</module>
         <module>taia-all</module>
+        <module>taia-i18n-springboot-starter</module>
     </modules>
 
     <parent>
@@ -32,6 +33,12 @@
             <artifactId>guava</artifactId>
             <version>20.0</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
