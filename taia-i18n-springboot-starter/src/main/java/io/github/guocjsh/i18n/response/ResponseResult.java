@@ -95,11 +95,15 @@ public class ResponseResult<T> {
 
     // 通用封装
     public static <T> ResponseResult<T> setResult(Integer code, String message, T data) {
-
         if (StringUtils.isNoneBlank(I18nContextHandler.getLang())) {
-            message = I18nUtil.getMessage(message, I18nContextHandler.getLang());
+            if (code == 20000) {
+                message = I18nContextHandler.getLang().equals("zh_CN") ? message : "request successful";
+            } else if (code == 52000) {
+                message = I18nContextHandler.getLang().equals("zh_CN") ? message :"request failure";
+            } else {
+                message = I18nUtil.getMessage(message, I18nContextHandler.getLang());
+            }
         }
-
         return new ResponseResult<T>(code, message, data);
     }
 

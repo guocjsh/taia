@@ -31,6 +31,19 @@ import org.springframework.context.annotation.Configuration;
 public class I18nAutoConfiguration {
 
     @Bean
+    public void soutLogo(){
+        String logo="  ___________      .__          \n" +
+                "  \\__    ___/____  |__|____     \n" +
+                "    |    |  \\__  \\ |  \\__  \\    \n" +
+                "    |    |   / __ \\|  |/ __ \\_  \n" +
+                "    |____|  (____  /__(____  /  \n" +
+                "                 \\/        \\/    \n" +
+                " \n" +
+                "http://www.isanlife.com (v1.0.1)";
+        System.out.println(logo);
+    }
+
+    @Bean
     public I18nFilter getFilter(){
         return new I18nFilter();
     }
