@@ -35,7 +35,7 @@ public class TaiaLocaleResolver implements LocaleResolver {
         //如果请求的链接中携带了 国际化的参数
         if (!StringUtils.isEmpty(language)){
             //zh_CN
-            String[] s = language.split("_");
+            String[] s = language.split("-");
             //国家，地区
             locale = new Locale(s[0], s[1]);
         }
