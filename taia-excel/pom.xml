@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <description>太阿-Java工具类，专注于简化Java API与分布式中间件的开发，让程序员更专注于业务。</description>
     <parent>
         <groupId>io.github.guocjsh</groupId>
         <artifactId>taia</artifactId>
