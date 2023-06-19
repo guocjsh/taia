@@ -14,6 +14,7 @@
         <module>taia-all</module>
         <module>taia-i18n-springboot-starter</module>
         <module>taia-excel</module>
+        <module>taia-redis</module>
     </modules>
 
     <parent>
