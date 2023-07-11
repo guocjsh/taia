@@ -1,2 +1,2 @@
 io.github.guocjsh.configuration.RedisConfiguration
-io.github.guocjsh.utils.SpringUtils
+io.github.guocjsh.util.SpringUtils

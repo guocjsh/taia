@@ -126,7 +126,7 @@ public class ExcelReader extends DefaultHandler {
                     } catch (AllEmptyRowException e) {
                         log.warn(e.getMessage());
                     } catch (Exception e) {
-                        throw new BelugaExcelException(e, "第{}个Sheet,第{}行,第{}列,系统发生异常! ", currentSheetIndex + 1, currentRowIndex + 1, dataCurrentCellIndex + 1);
+                        throw new TaiaExcelException(e, "第{}个Sheet,第{}行,第{}列,系统发生异常! ", currentSheetIndex + 1, currentRowIndex + 1, dataCurrentCellIndex + 1);
                     }
                 } finally {
                     if (sheet != null) {
@@ -220,7 +220,7 @@ public class ExcelReader extends DefaultHandler {
                 endCellLocation = currentCellLocation;
                 int propertySize = excelMapping.getPropertyList().size();
                 if (cellsOnRow.size() != propertySize) {
-                    throw new BelugaExcelException("Excel有效列数不等于标注注解的属性数量!Excel列数:{},标注注解的属性数量:{}", cellsOnRow.size(), propertySize);
+                    throw new TaiaExcelException("Excel有效列数不等于标注注解的属性数量!Excel列数:{},标注注解的属性数量:{}", cellsOnRow.size(), propertySize);
                 }
             }
             if (null != endCellLocation) {
@@ -231,10 +231,10 @@ public class ExcelReader extends DefaultHandler {
             }
             try {
                 this.assembleData();
-            } catch (BelugaExcelException e) {
+            } catch (TaiaExcelException e) {
                 throw e;
             } catch (Exception e) {
-                throw new BelugaExcelException(e);
+                throw new TaiaExcelException(e);
             }
             cellsOnRow.clear();
             currentRowIndex++;
@@ -259,7 +259,7 @@ public class ExcelReader extends DefaultHandler {
         } else if ("s".equals(cellType) || cellType == null) {
             cellFormatStr = ExcelCellType.STRING;
         } else {
-            throw new BelugaExcelException("Excel单元格格式未设置成文本或者常规!单元格格式:{}", cellType);
+            throw new TaiaExcelException("Excel单元格格式未设置成文本或者常规!单元格格式:{}", cellType);
         }
     }
 
@@ -352,7 +352,7 @@ public class ExcelReader extends DefaultHandler {
                 cellValue = new BigDecimal(convertNullTOZERO(cellValue)).setScale(mappingProperty.getScale(), RoundingMode.HALF_UP);
             }
         } else if (filedClazz != String.class) {
-            throw new BelugaExcelException("不支持的属性类型:{},导入失败!", filedClazz);
+            throw new TaiaExcelException("不支持的属性类型:{},导入失败!", filedClazz);
         }
 
         return cellValue;
